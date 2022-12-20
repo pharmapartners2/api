@@ -11,9 +11,8 @@ public class MedicationPrescriptionModel {
     @GeneratedValue
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "patientid")
-    private PatientModel patient;
+    @Column(name = "patientid")
+    private int patientId;
 
     @Column(name = "datum")
     private Date datum;
@@ -21,46 +20,47 @@ public class MedicationPrescriptionModel {
     @Column(name = "beschrijving")
     private String beschrijving;
 
-    @Column(name = "bpcode")
-    private int bpCode;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "medicatieid")
+    private Medication medications;
 
-    public int getId() {
-        return id;
-    }
-
-    public int getBpCode() {
-        return bpCode;
-    }
-
-    public PatientModel getPatient() {
-        return patient;
-    }
-
-    public String getBeschrijving() {
-        return beschrijving;
-    }
-
-    public Date getDatum() {
-        return datum;
+    public void setPatientId(int patientId) {
+        this.patientId = patientId;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setPatient(PatientModel patient) {
-        this.patient = patient;
+    public int getId() {
+        return id;
     }
 
-    public void setDatum(Date datum) {
-        this.datum = datum;
+    public int getPatientId() {
+        return patientId;
+    }
+
+    public void setMedications(Medication medications) {
+        this.medications = medications;
     }
 
     public void setBeschrijving(String beschrijving) {
         this.beschrijving = beschrijving;
     }
 
-    public void setBpCode(int bpCode) {
-        this.bpCode = bpCode;
+    public void setDatum(Date datum) {
+        this.datum = datum;
+    }
+
+    public Date getDatum() {
+        return datum;
+    }
+
+    public String getBeschrijving() {
+        return beschrijving;
+    }
+
+    public Medication getMedications() {
+        return medications;
     }
 }

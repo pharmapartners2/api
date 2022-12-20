@@ -25,11 +25,11 @@ public class VisitingCardController {
         return null;
     }
 
-    @GetMapping("/MedicationPrescription")
+    /*@GetMapping("/MedicationPrescription")
     public @ResponseBody List<MedicationPrescriptionModel> getAllMedicalPrescriptions()
     {
         return medicationPrescriptionRepository.findAll();
-    }
+    }*/
     @GetMapping("/PhysicalExam")
     public @ResponseBody List<PhysicalExamModel> getAllPhysicalExams()
     {
@@ -40,10 +40,6 @@ public class VisitingCardController {
     {
         return patientRepository.findAll();
     }
-
-    @GetMapping("/MedicationPrescription/{patientId}")
-    public @ResponseBody List<MedicationPrescriptionModel> getMedicationPrescriptionByPatientId(@PathVariable int patientId){return medicationPrescriptionRepository.findByPatientId(patientId);}
-
     @GetMapping("/Patient/{patientId}")
     public @ResponseBody PatientModel getPatientById(@PathVariable int patientId){return patientRepository.findById(patientId);}
     @GetMapping("/PhysicalExam/{patientId}")
