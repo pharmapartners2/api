@@ -9,6 +9,6 @@ import java.util.List;
 public interface EpisodeRepository extends CrudRepository<EpisodeModel, Integer>{
     EpisodeModel findEpisodeById(int id);
     List<EpisodeModel> findAll();
-    EpisodeModel findEpisodeByPatientId(int patientId);
+    List<EpisodeModel> findEpisodeByPatientId(int patientId);
 
 }

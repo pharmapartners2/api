@@ -6,6 +6,7 @@ import com.pharmapartners2.api.repository.PatientRepository;
 import com.pharmapartners2.api.repository.PhysicalExamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,4 +40,12 @@ public class VisitingCardController {
     {
         return patientRepository.findAll();
     }
+
+    @GetMapping("/MedicationPrescription/{patientId}")
+    public @ResponseBody List<MedicationPrescriptionModel> getMedicationPrescriptionByPatientId(@PathVariable int patientId){return medicationPrescriptionRepository.findByPatientId(patientId);}
+
+    @GetMapping("/Patient/{patientId}")
+    public @ResponseBody PatientModel getPatientById(@PathVariable int patientId){return patientRepository.findById(patientId);}
+    @GetMapping("/PhysicalExam/{patientId}")
+    public @ResponseBody List<PhysicalExamModel> getPhysicalExamByPatientId(@PathVariable int patientId){return physicalExamRepository.findByPatientId(patientId);}
 }
