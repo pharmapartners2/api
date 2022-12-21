@@ -18,14 +18,14 @@ public class EpisodeModel {
     @Column(name="patientid")
     private int patientId;
 
-    @Column
+    @Column(name = "datum")
     private Date datum;
 
-    @Column
+    @Column(name = "beschrijving")
     private String beschrijving;
 
-    @Column
-    private String icpccode;
+    @Column(name = "icpccodeid")
+    private int icpccodeid;
 
     public EpisodeModel(){
 
@@ -43,8 +43,8 @@ public class EpisodeModel {
         this.beschrijving = beschrijving;
     }
 
-    public void setIcpcCode(String icpcCode) {
-        this.icpccode = icpcCode;
+    public void setIcpccodeid(int icpccodeid) {
+        this.icpccodeid = icpccodeid;
     }
 
     public int getPatientId() {
@@ -59,9 +59,7 @@ public class EpisodeModel {
         return beschrijving;
     }
 
-    public String getIcpcCode() {
-        return icpccode;
+    public int getIcpccodeid() {
+        return icpccodeid;
     }
-
-
 }
