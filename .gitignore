@@ -37,4 +37,4 @@ out/
 .vscode/
 
 ### ENV Vars ###W
-/env.properties
+application.properties

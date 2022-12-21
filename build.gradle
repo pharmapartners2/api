@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.0.0'
 	id 'io.spring.dependency-management' version '1.1.0'
+	id 'com.google.cloud.tools.jib' version '3.3.1'
 }
 
 group = 'com.pharmapartners2'
@@ -11,6 +12,19 @@ sourceCompatibility = '17'
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
+	}
+}
+jib {
+	from {
+		image = 'bellsoft/liberica-openjdk-alpine:17'
+		credHelper = 'desktop'
+	}
+	jib.to.image = 'pharmapartnersapi.azurecr.io/pharmapartnersapi'
+	container {
+		jvmFlags = ['-Xms512m', '-Xdebug']
+		mainClass = 'com.pharmapartners2.api.ApiApplication'
+		args = []
+		ports = ['8080/tcp']
 	}
 }
 
