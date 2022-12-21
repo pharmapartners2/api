@@ -44,9 +44,9 @@ jobs:
 
 
 
-      - name: Build with Maven
+      - name: Build with Gradle
 
-        run: mvn clean install
+        run: gradle clean install
 
 
 
