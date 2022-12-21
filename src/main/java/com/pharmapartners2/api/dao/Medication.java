@@ -9,6 +9,8 @@ public class Medication {
     @GeneratedValue()
     private int id;
 
+    @Column(name = "bp")
+    private int bp;
     @Column(name = "bpnaam")
     private String bpNaam;
 
@@ -47,5 +49,13 @@ public class Medication {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getBp() {
+        return bp;
+    }
+
+    public void setBp(int bp) {
+        this.bp = bp;
     }
 }
