@@ -21,32 +21,20 @@ on:
 
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
-
-
     steps:
-
       - uses: actions/checkout@v2
-
-
-
       - name: Set up Java version
-
         uses: actions/setup-java@v1
-
         with:
-
           java-version: '17'
 
 
 
       - name: Build with Gradle
 
-        run: gradle clean install
+        run: ./gradlew build
 
 
 
