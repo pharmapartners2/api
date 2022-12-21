@@ -2,14 +2,10 @@ package com.pharmapartners2.api.dao;
 
 import java.sql.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name="Episode")
+@Table(name="episode")
 public class EpisodeModel {
     @Id
     @GeneratedValue
@@ -24,12 +20,9 @@ public class EpisodeModel {
     @Column
     private String beschrijving;
 
-    @Column
-    private String icpccode;
-
-    public EpisodeModel(){
-
-    }
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "icpccodeid")
+    private IcpcCode icpcCode;
 
     public void setPatientId(int patientid) {
         this.patientId = patientid;
@@ -41,10 +34,6 @@ public class EpisodeModel {
 
     public void setBeschrijving(String beschrijving) {
         this.beschrijving = beschrijving;
-    }
-
-    public void setIcpcCode(String icpcCode) {
-        this.icpccode = icpcCode;
     }
 
     public int getPatientId() {
@@ -59,9 +48,19 @@ public class EpisodeModel {
         return beschrijving;
     }
 
-    public String getIcpcCode() {
-        return icpccode;
+    public IcpcCode getIcpcCode() {
+        return icpcCode;
     }
 
+    public void setIcpcCode(IcpcCode icpcCode) {
+        this.icpcCode = icpcCode;
+    }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
