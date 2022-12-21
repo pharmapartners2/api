@@ -11,9 +11,8 @@ public class PhysicalExamModel {
     @GeneratedValue
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "patientid")
-    private PatientModel patient;
+    @Column(name = "patientid")
+    private int patientId;
 
     @Column(name = "datum")
     private Date datum;
@@ -21,13 +20,9 @@ public class PhysicalExamModel {
     @Column(name = "waarde")
     private String waarde;
 
-    @Column(name = "ddelementid")
-    private int ddElementId;
-
-    public PatientModel getPatient() {
-        return patient;
-    }
-
+    @ManyToOne
+    @JoinColumn(name = "ddelementid")
+    private DDElement ddElement;
     public int getId() {
         return id;
     }
@@ -36,8 +31,12 @@ public class PhysicalExamModel {
         return datum;
     }
 
-    public int getDdElementId() {
-        return ddElementId;
+    public DDElement getDdElement() {
+        return ddElement;
+    }
+
+    public void setDdElement(DDElement ddElement) {
+        this.ddElement = ddElement;
     }
 
     public String getWaarde() {
@@ -48,19 +47,12 @@ public class PhysicalExamModel {
         this.datum = datum;
     }
 
-    public void setDdElementId(int ddElementId) {
-        this.ddElementId = ddElementId;
-    }
-
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setPatient(PatientModel patient) {
-        this.patient = patient;
     }
 
     public void setWaarde(String waarde) {
         this.waarde = waarde;
     }
+
 }
