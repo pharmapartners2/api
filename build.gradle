@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.0.0'
 	id 'io.spring.dependency-management' version '1.1.0'
+	id 'com.google.cloud.tools.jib' version '3.3.1'
 }
 
 group = 'com.pharmapartners2'
@@ -13,6 +14,19 @@ configurations {
 		extendsFrom annotationProcessor
 	}
 }
+jib {
+	from {
+		image = 'bellsoft/liberica-openjdk-alpine:17'
+		credHelper = 'desktop'
+	}
+	jib.to.image = 'pharmapartnersapi.azurecr.io/pharmapartnersapi'
+	container {
+		jvmFlags = ['-Xms512m', '-Xdebug']
+		mainClass = 'com.pharmapartners2.api.ApiApplication'
+		args = []
+		ports = ['8080/tcp']
+	}
+}
 
 repositories {
 	mavenCentral()
@@ -21,6 +35,8 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'com.microsoft.sqlserver:mssql-jdbc'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
