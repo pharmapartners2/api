@@ -15,11 +15,11 @@ public class PatientController{
     @Autowired
     private PatientRepository patientRepository;
 
-    @GetMapping("/Patient")
+    @GetMapping("/patient")
     public @ResponseBody List<PatientModel> getAllPatients()
     {
         return patientRepository.findAll();
     }
-    @GetMapping("/Patient/{patientId}")
+    @GetMapping("/patient/{patientId}")
     public @ResponseBody PatientModel getPatientById(@PathVariable int patientId){return patientRepository.findById(patientId);}
 }
