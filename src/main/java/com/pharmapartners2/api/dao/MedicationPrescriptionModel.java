@@ -22,7 +22,7 @@ public class MedicationPrescriptionModel {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "medicatieid")
-    private Medication medications;
+    private Medication medication;
 
     public void setPatientId(int patientId) {
         this.patientId = patientId;
@@ -40,8 +40,8 @@ public class MedicationPrescriptionModel {
         return patientId;
     }
 
-    public void setMedications(Medication medications) {
-        this.medications = medications;
+    public void setMedications(Medication medication) {
+        this.medication = medication;
     }
 
     public void setBeschrijving(String beschrijving) {
@@ -61,6 +61,6 @@ public class MedicationPrescriptionModel {
     }
 
     public Medication getMedications() {
-        return medications;
+        return medication;
     }
 }

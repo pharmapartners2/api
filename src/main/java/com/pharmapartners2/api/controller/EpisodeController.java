@@ -15,12 +15,6 @@ public class EpisodeController {
     @Autowired
     private EpisodeRepository episodeRepository;
 
-    @GetMapping("/episode")
-    public @ResponseBody List<EpisodeModel> getAllEpisodes()
-    {
-        return episodeRepository.findAll();
-    }
-
     @GetMapping("/episode/{patientId}")
     public @ResponseBody List<EpisodeModel> getEpisodeByPatientId(@PathVariable int patientId)
     {
