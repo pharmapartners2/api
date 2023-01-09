@@ -36,7 +36,7 @@ public class LoggingModel {
         return userId;
     }
 
-    public DateTime getDateTime() {
+    public LocalDateTime getDateTime() {
         return datetime;
     }
 
