@@ -3,7 +3,7 @@ package com.pharmapartners2.api.dao;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="Patienten")
+@Table(name="Patient")
 public class PatientModel {
     @Id
     @GeneratedValue

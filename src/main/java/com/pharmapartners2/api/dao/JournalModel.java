@@ -5,7 +5,7 @@ import java.sql.Date;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="journal")
+@Table(name="journaal")
 public class JournalModel {
     @Id
     @GeneratedValue
@@ -20,9 +20,8 @@ public class JournalModel {
     @Column
     private String beschrijving;
 
-    // @ManyToOne(cascade = CascadeType.ALL)
-    // @JoinColumn(name = "icpccodeid")
-    // private IcpcCode icpcCode;
+    @Column
+    private int code;
 
     public void setPatientId(int patientid) {
         this.patientId = patientid;
@@ -48,13 +47,13 @@ public class JournalModel {
         return beschrijving;
     }
 
-    // public IcpcCode getIcpcCode() {
-    //     return icpcCode;
-    // }
+    public int getCode() {
+        return code;
+    }
 
-    // public void setIcpcCode(IcpcCode icpcCode) {
-    //     this.icpcCode = icpcCode;
-    // }
+    public void setCode(int code) {
+        this.code = code;
+    }
 
     public int getId() {
         return id;
