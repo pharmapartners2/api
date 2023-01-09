@@ -24,7 +24,7 @@ public class LoggingModel {
         this.userId = userid;
     }
 
-    public void setDateTime(DateTime datetime) {
+    public void setDateTime(LocalDateTime datetime) {
         this.datetime = datetime;
     }
 
