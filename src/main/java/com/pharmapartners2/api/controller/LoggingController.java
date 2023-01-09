@@ -20,4 +20,9 @@ public class LoggingController {
     {
         return loggingRepository.findLoggingByUserId(userId);
     }
+
+    @PostMapping(value = "/logging")
+    public LoggingModel CreateLoggingMethod(@RequestBody LoggingRequest newLogging) {
+        return loggingRepository.save(newLogging);
+    }
 }
