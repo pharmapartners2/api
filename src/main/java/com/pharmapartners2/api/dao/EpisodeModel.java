@@ -14,10 +14,10 @@ public class EpisodeModel {
     @Column(name="patientid")
     private int patientId;
 
-    @Column
+    @Column(name = "datum")
     private Date datum;
 
-    @Column
+    @Column(name = "beschrijving")
     private String beschrijving;
 
     @ManyToOne(cascade = CascadeType.ALL)

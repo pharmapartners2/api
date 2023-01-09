@@ -1,4 +1,6 @@
 package com.pharmapartners2.api.model;
 
-public record PatientRequest(String bsn, String naam) {
+import java.util.Date;
+
+public record PatientRequest(String bsn, String naam, String telefoonNr, Date geboorteDatum, String adres) {
 }
