@@ -1,6 +1,6 @@
 package com.pharmapartners2.api.dao;
 
-import java.sql.DateTime;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
 
@@ -15,7 +15,7 @@ public class LoggingModel {
     private int userId;
 
     @Column(name="datetime")
-    private DateTime datetime;
+    private LocalDateTime datetime;
 
     @Column(name="logline")
     private String logLine;
@@ -29,7 +29,7 @@ public class LoggingModel {
     }
 
     public void setLogLine(String logline) {
-        this.logline = logline;
+        this.logLine = logline;
     }
 
     public int getUserId() {
@@ -41,7 +41,7 @@ public class LoggingModel {
     }
 
     public String getLogLine() {
-        return logline;
+        return logLine;
     }
 
     public int getId() {
