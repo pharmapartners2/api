@@ -16,7 +16,7 @@ configurations {
 }
 jib {
 	from {
-		image = 'bellsoft/liberica-openjdk-alpine:17'
+		image = 'bellsoft/liberica-openjdk-alpine'
 		credHelper = 'desktop'
 	}
 	jib.to.image = 'pharmapartnersapi.azurecr.io/pharmapartnersapi'

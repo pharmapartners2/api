@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 @Table(name="journaal")
 public class JournalModel {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "TBL_METADATA_ID_SEQ")
     int id;
 
     @Column(name="patientid")
