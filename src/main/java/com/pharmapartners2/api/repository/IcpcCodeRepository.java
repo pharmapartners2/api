@@ -9,4 +9,5 @@ import org.springframework.data.repository.CrudRepository;
 @Repository
 public interface IcpcCodeRepository extends CrudRepository<IcpcCode, Integer> {
     IcpcCode findById(int id);
+    List<icpcCode> findAll();
 }
