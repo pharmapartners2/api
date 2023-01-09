@@ -88,7 +88,8 @@ public class SecurityConfig {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:8080", "http://localhost:4200", "https://pharmapartnersapi.azurewebsites.net", "https://lucent-pony-3a4e00.netlify.app"));
+        configuration.setAllowedOrigins(List.of("http://localhost:8080/", "http://localhost:4200/",
+            "https://pharmapartnersapi.azurewebsites.net/", "https://lucent-pony-3a4e00.netlify.app/%22"));
         configuration.setAllowedMethods(List.of("GET","POST"));
         configuration.setAllowedHeaders(List.of("Authorization","Content-Type"));
         var source = new UrlBasedCorsConfigurationSource();
