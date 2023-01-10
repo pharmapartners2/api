@@ -12,8 +12,9 @@ public class AppointmentModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "TBL_METADATA_ID_SEQ")
     private int id;
 
-    @Column(name = "patientid")
-    private int patientId;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "patientid")
+    private PatientModel patientModel;
 
     @Column(name = "datum")
     private Date datum;
@@ -28,8 +29,12 @@ public class AppointmentModel {
         return id;
     }
 
-    public int getPatientId() {
-        return patientId;
+    public PatientModel getPatientModel() {
+        return patientModel;
+    }
+
+    public void setPatientModel(PatientModel patientModel) {
+        this.patientModel = patientModel;
     }
 
     public Date getDatum() {
@@ -48,9 +53,6 @@ public class AppointmentModel {
         this.id = id;
     }
 
-    public void setPatientId(int patientId) {
-        this.patientId = patientId;
-    }
 
     public void setDatum(Date datum) {
         this.datum = datum;
