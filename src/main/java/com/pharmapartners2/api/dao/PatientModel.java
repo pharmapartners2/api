@@ -10,17 +10,17 @@ public class PatientModel {
     @Id
     @GeneratedValue
     private int id;
-    @Column
+    @Column(name = "bsn")
     private String bsn;
-    @Column
+    @Column(name = "naam")
     private String naam;
-    @Column
+    @Column(name = "telefoonnr")
     private String telefoonNr;
-    @Column
+    @Column(name = "geboortedatum")
     private Date geboorteDatum;
-    @Column
+    @Column(name = "adres")
     private String adres;
-    @Column 
+    @Column(name = "postcode")
     private String postcode;
 
 
