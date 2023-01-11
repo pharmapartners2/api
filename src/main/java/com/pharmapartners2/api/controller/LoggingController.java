@@ -27,10 +27,11 @@ public class LoggingController {
         return loggingRepository.findLoggingByUserId(userId);
     }
 
-    @PostMapping(value = "/logging", consumes = "application/json", produces = "application/json")
+    @PostMapping(value = "/logging")
     public LoggingModel CreateLoggingMethod(@RequestBody LoggingRequest newLogging) {
+        //System.out.println("Logging aangeroepen " + newLogging.userId());
         LoggingModel logging = new LoggingModel();
-        logging.setDateTime(LocalDateTime.parse(newLogging.datetime()));
+        logging.setDateTime(newLogging.datetime());
         logging.setLogLine(newLogging.logLine());
         logging.setUserId(newLogging.userId());
         return loggingRepository.save(logging);

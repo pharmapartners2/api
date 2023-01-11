@@ -32,6 +32,7 @@ public class AuthController {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userLogin.username(), userLogin.password()));
         if(authentication.isAuthenticated()) {
             var user = userRepository.findUserByUsername(userLogin.username());
+
             return tokenService.generateToken(authentication, user.getId());
         }
         return "Not authenticated";

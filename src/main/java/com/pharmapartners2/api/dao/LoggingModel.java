@@ -1,7 +1,9 @@
 package com.pharmapartners2.api.dao;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,7 +17,7 @@ public class LoggingModel {
     private int userId;
 
     @Column(name="datetime")
-    private LocalDateTime datetime;
+    private String datetime;
 
     @Column(name="logline")
     private String logLine;
@@ -24,7 +26,7 @@ public class LoggingModel {
         this.userId = userid;
     }
 
-    public void setDateTime(LocalDateTime datetime) {
+    public void setDateTime(String datetime) {
         this.datetime = datetime;
     }
 
@@ -36,7 +38,7 @@ public class LoggingModel {
         return userId;
     }
 
-    public LocalDateTime getDateTime() {
+    public String getDateTime() {
         return datetime;
     }
 
