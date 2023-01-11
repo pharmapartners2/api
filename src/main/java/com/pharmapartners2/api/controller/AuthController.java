@@ -43,5 +43,5 @@ public class AuthController {
         return userRepository.findAll();
     }
     @GetMapping("/user/{userId}")
-    public @ResponseBody UserModel findUserById(@PathVariable int Id){return userRepository.findUserById(Id);}
+    public @ResponseBody UserModel findUserById(@PathVariable int userId){return userRepository.findUserById(userId);}
 }

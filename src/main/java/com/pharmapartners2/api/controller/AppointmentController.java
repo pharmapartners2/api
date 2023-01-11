@@ -16,8 +16,8 @@ public class AppointmentController {
     public @ResponseBody List<AppointmentModel> getAllAppointments(){return appointmentRepository.findAll();}
 
 
-    @GetMapping("/appointment/{appointmentId}")
-    public @ResponseBody AppointmentModel getAppointmentById(@PathVariable int appointmentId){return appointmentRepository.findById(appointmentId);}
+    @GetMapping("/appointment/{userId}")
+    public @ResponseBody List<AppointmentModel> getAppointmentById(@PathVariable int userId){return appointmentRepository.findByUserId(userId);}
 
     @PostMapping("/appointment")
     public AppointmentModel setAppointment(@RequestBody AppointmentModel appointmentModel){
