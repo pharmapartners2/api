@@ -1,5 +1,6 @@
 package com.pharmapartners2.api.dao;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -7,11 +8,12 @@ import java.util.Date;
 @Entity
 @Table(name="afspraak")
 public class AppointmentModel {
-
+    private String username;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "TBL_METADATA_ID_SEQ")
     private int id;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "patientid")
     private PatientModel patientModel;
@@ -22,6 +24,7 @@ public class AppointmentModel {
     @Column(name = "beschrijving")
     private String beschrijving;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @Column(name = "userid")
     private int userId;
 
@@ -45,8 +48,12 @@ public class AppointmentModel {
         return beschrijving;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setId(int id) {
@@ -60,6 +67,10 @@ public class AppointmentModel {
 
     public void setBeschrijving(String beschrijving) {
         this.beschrijving = beschrijving;
+    }
+
+    public int getUserId() {
+        return userId;
     }
 
     public void setUserId(int userId) {

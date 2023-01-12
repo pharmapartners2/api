@@ -13,7 +13,7 @@ public class AppointmentController {
     private AppointmentRepository appointmentRepository;
 
     @GetMapping("/appointment")
-    public @ResponseBody List<AppointmentModel> getAllAppointments(){return appointmentRepository.findAll();}
+    public @ResponseBody List<AppointmentModel> getAllAppointments(){return appointmentRepository.findAllAppointments();}
 
 
     @GetMapping("/appointment/{userId}")
@@ -22,5 +22,5 @@ public class AppointmentController {
     @PostMapping("/appointment")
     public AppointmentModel setAppointment(@RequestBody AppointmentModel appointmentModel){
         return appointmentRepository.save(appointmentModel);
-    };
+    }
 }
