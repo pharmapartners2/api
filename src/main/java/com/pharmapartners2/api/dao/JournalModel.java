@@ -14,13 +14,13 @@ public class JournalModel {
     @Column(name="patientid")
     private int patientId;
 
-    @Column(name="datum")
+    @Column
     private Date datum;
 
-    @Column(name="beschrijving")
+    @Column
     private String beschrijving;
 
-    @Column(name = "code")
+    @Column
     private int code;
 
     public void setPatientId(int patientid) {
