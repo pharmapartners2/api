@@ -1,6 +1,5 @@
 package com.pharmapartners2.api.controller;
 
-import com.pharmapartners2.api.model.JournalRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +20,7 @@ public class JournalController {
     }
 
     @PostMapping("/journal")
-    JournalModel journalModel (@RequestBody JournalModel journal) {
-        return journalRepository.save(journal);
+    public JournalModel journalModel(@RequestBody JournalModel journalModel) {
+        return journalRepository.save(journalModel);
     }
 }

@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 @Table(name="episode")
 public class EpisodeModel {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     int id;
 
     @Column(name="patientid")
@@ -20,7 +20,7 @@ public class EpisodeModel {
     @Column(name = "beschrijving")
     private String beschrijving;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "icpccodeid")
     private IcpcCode icpcCode;
 

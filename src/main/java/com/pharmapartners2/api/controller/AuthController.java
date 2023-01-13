@@ -4,12 +4,14 @@ import com.pharmapartners2.api.dao.UserModel;
 import com.pharmapartners2.api.repository.UserRepository;
 import com.pharmapartners2.api.service.JwtTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
 import com.pharmapartners2.api.model.LoginRequest;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.List;
 
@@ -28,7 +30,12 @@ public class AuthController {
     @PostMapping("/login")
     public String token(@RequestBody LoginRequest userLogin) throws AuthenticationException {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userLogin.username(), userLogin.password()));
-        return tokenService.generateToken(authentication);
+        if(authentication.isAuthenticated()) {
+            var user = userRepository.findUserByUsername(userLogin.username());
+
+            return tokenService.generateToken(authentication, user.getId());
+        }
+        return "Not authenticated";
     }
 
     @GetMapping("/user")
@@ -36,4 +43,6 @@ public class AuthController {
     {
         return userRepository.findAll();
     }
+    @GetMapping("/user/{userId}")
+    public @ResponseBody UserModel findUserById(@PathVariable int userId){return userRepository.findUserById(userId);}
 }

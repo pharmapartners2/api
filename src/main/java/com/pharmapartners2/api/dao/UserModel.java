@@ -32,4 +32,8 @@ public class UserModel {
     public String getPassword() {
         return password;
     }
+
+    public int getId() {
+        return id;
+    }
 }
