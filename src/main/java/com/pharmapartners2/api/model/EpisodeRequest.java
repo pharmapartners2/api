@@ -1,5 +1,7 @@
 package com.pharmapartners2.api.model;
 
-public record EpisodeRequest(int patientId, String datum, String beschrijving, int icpccode) {
+import java.sql.Date;
+
+public record EpisodeRequest(String beschrijving, Date datum, int icpccode, int patientId) {
 
 }
