@@ -8,7 +8,7 @@ import java.util.Date;
 @Table(name="lichamelijkonderzoek")
 public class PhysicalExamModel {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "TBL_METADATA_ID_SEQ")
     private int id;
 
     @Column(name = "patientid")
