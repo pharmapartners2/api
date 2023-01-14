@@ -40,7 +40,7 @@ public class EpisodeController {
         episode.setPatientId(newEpisode.patientId());
         episode.setIcpcCode(icpc);
         episode.setBeschrijving(newEpisode.beschrijving());
-        episode.setDatum(Date.valueOf(newEpisode.datum()));
+        episode.setDatum(newEpisode.datum());
         return episodeRepository.save(episode);
     }
 
