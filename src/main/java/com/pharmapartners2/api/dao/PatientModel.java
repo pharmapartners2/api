@@ -20,8 +20,6 @@ public class PatientModel {
     private Date geboorteDatum;
     @Column(name = "adres")
     private String adres;
-    @Column(name = "postcode")
-    private String postcode;
 
 
 
@@ -52,9 +50,4 @@ public class PatientModel {
     public String adres () {
         return adres;
     }
-
-    public String postcode () {
-        return postcode;
-    }
-
 }
