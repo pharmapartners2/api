@@ -21,6 +21,11 @@ public class JournalRegelController {
         return journalRegelRepository.findJournalByPatientId(patientId);
     }
 
+    @GetMapping("/episode/journal/{episodeId}")
+    public @ResponseBody List<JournalRegel> getEpisodeByEpisodeId(@PathVariable int episodeId) {
+        return journalRegelRepository.findJournalRegelByEpisodeId(episodeId);
+    }
+
     @PostMapping("/journal")
     public JournalRegel journalModel(@RequestBody JournalRegelRequest journalRegelRequest) {
         JournalRegel journalRegel = new JournalRegel();

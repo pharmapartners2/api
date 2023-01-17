@@ -8,4 +8,5 @@ import java.util.List;
 @Repository
 public interface JournalRegelRepository extends CrudRepository<JournalRegel, Integer>{
     List<JournalRegel> findJournalByPatientId(int patientId);
+    List<JournalRegel> findJournalRegelByEpisodeId(int episodeId);
 }
