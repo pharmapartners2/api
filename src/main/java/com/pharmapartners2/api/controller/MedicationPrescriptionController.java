@@ -34,7 +34,7 @@ public class MedicationPrescriptionController {
         Medication medicatie = medicationRepository.findById(newMedication.bpCode());
 
         medication.setPatientId(newMedication.patientId());
-        medication.setDatum(Date.valueOf(newMedication.datum()));
+        medication.setDatum(newMedication.datum());
         medication.setBeschrijving(newMedication.beschrijving());
         medication.setMedications(medicatie);
         return medicationPrescriptionRepository.save(medication);
