@@ -2,6 +2,8 @@ package com.pharmapartners2.api.dao;
 
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -22,6 +24,7 @@ public class EpisodeModel {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "icpccodeid")
+    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private IcpcCode icpcCode;
 
     public void setPatientId(int patientid) {
