@@ -8,7 +8,7 @@ import java.util.Date;
 @Table(name="medicatievoorschrift")
 public class MedicationPrescriptionModel {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "patientid")
