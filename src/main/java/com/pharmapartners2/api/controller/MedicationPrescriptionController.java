@@ -25,6 +25,12 @@ public class MedicationPrescriptionController {
     @Autowired
     private MedicationRepository medicationRepository;
 
+    @GetMapping("/medications")
+    public @ResponseBody List<Medication> getMedications()
+    {
+        return  medicationRepository.findAll();
+    }
+
     @GetMapping("/medicationprescription/{id}")
     public @ResponseBody List<MedicationPrescriptionModel> getMedicationPrescriptionByPatientId(@PathVariable int id){return medicationPrescriptionRepository.findByPatientId(id);}
 
