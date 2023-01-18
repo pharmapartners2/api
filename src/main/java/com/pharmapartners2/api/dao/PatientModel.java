@@ -47,7 +47,7 @@ public class PatientModel {
         return geboorteDatum;
     }
 
-    public String adres () {
+    public String getAdres () {
         return adres;
     }
 }
