@@ -8,7 +8,7 @@ import java.util.Date;
 @Table(name="lichamelijkonderzoek")
 public class PhysicalExamModel {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "TBL_METADATA_ID_SEQ")
     private int id;
 
     @Column(name = "patientid")
@@ -18,7 +18,7 @@ public class PhysicalExamModel {
     private Date datum;
 
     @Column(name = "waarde")
-    private String waarde;
+    private int waarde;
 
     @ManyToOne
     @JoinColumn(name = "ddelementid")
@@ -39,7 +39,7 @@ public class PhysicalExamModel {
         this.ddElement = ddElement;
     }
 
-    public String getWaarde() {
+    public int getWaarde() {
         return waarde;
     }
 
@@ -51,8 +51,15 @@ public class PhysicalExamModel {
         this.id = id;
     }
 
-    public void setWaarde(String waarde) {
+    public void setWaarde(int waarde) {
         this.waarde = waarde;
     }
 
+    public int getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(int patientId) {
+        this.patientId = patientId;
+    }
 }
